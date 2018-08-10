@@ -21,6 +21,6 @@ var convert = function(s, numRows) {
 };
 
 
-// console.log(convert('PAYPALISHIRING', 4))
-// let arr = new Array(4).fill("");
-// console.log(arr)
+console.log(convert('PAYPALISHIRING', 4))
+let arr = new Array(4).fill("");
+console.log(arr)
