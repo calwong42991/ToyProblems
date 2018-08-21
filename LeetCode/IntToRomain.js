@@ -18,12 +18,12 @@ var intToRoman = function(num) {
   
   for (let i = 0; i < ROMANS.length; i++) {
       let [ roman, n ] = ROMANS[i];
-      
       while (num >= n) {
           result += roman;
           num -= n;
       }
   }
-  
   return result;
 };
+
+console.log(intToRoman(4543));
