@@ -5,11 +5,10 @@
 
 var threeSum = function(nums) {
   var ret = [];
-
-  // sort array to make sure no duplicates
+  
   nums = nums.sort((a, b) => a - b);
   for (var i = 0; i + 2 < nums.length; i++) {
-      // if duplicate continue;
+
       if (i > 0 && nums[i] == nums[i - 1]) {
           continue;
       }
@@ -17,7 +16,7 @@ var threeSum = function(nums) {
       var j = i + 1;
       var k = nums.length - 1;  
       var target = -nums[i];
-      
+
       while (j < k) {
           if (nums[j] + nums[k] == target) {
               ret.push([nums[i], nums[j], nums[k]]);
@@ -35,5 +34,7 @@ var threeSum = function(nums) {
 
   return ret;
 };
+
+
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]))
