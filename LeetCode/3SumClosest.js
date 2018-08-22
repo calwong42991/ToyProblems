@@ -4,25 +4,27 @@
  * @return {number}
  */
 var threeSumClosest = function(nums, target) {
-  if (nums.length === 0) {
-    return;
-  }
-  if (nums.length < 4) {
-    return nums.reduce((a, b) => a + b);
-  }
-  let i, j, k, sum, result = nums[0] + nums[1] + nums[2];
-  for (i = 0; i < nums.length - 2; i ++) {
-    for (j = i + 1; j < nums.length - 1; j ++) {
-      for (k = j + 1; k < nums.length; k ++) {
-        sum = nums[i] + nums[j] + nums[k];
-        if (sum === target) {
-          return target;
-        } else {
-          result = Math.abs(result - target) < Math.abs(sum - target) ? result : sum;
-        }
+  let i, left, right, current, sum;
+  let result = Number.MAX_SAFE_INTEGER;
+  nums.sort((a, b) => a - b);
+  // two pointers
+  for(i = 0; i < nums.length; i++){
+      current = nums[i];
+      left = i+1;
+      right = nums.length-1;
+      while(left < right){
+          sum = current + nums[left] + nums[right];
+          if(Math.abs(target - sum) < Math.abs(target - result)){
+              result = sum;
+          }
+          if(sum < target){
+              left++;
+          }else if(sum > target){
+              right--;
+          }else{
+              return sum;
+          }
       }
-    }
   }
-  
   return result;
 };
