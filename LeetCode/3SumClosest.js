@@ -7,7 +7,6 @@ var threeSumClosest = function(nums, target) {
   let i, left, right, current, sum;
   let result = Number.MAX_SAFE_INTEGER;
   nums.sort((a, b) => a - b);
-  // two pointers
   for(i = 0; i < nums.length; i++){
       current = nums[i];
       left = i+1;
